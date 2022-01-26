@@ -24,8 +24,7 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
     ArrayList <MascotasDto> mascotas;
     MascotasAdaptador adaptador;
     RecyclerView listmascotas;
-
-    private RecyclerView rvMascotas;
+;
     private IRecylerViewFragmentPresenter presenter;
     @Nullable
     @Override
@@ -38,7 +37,7 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
         View v = inflater.inflate(R.layout.fragment_recycler, container, false);
 
 
-        rvMascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
+        listmascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
         presenter = new RecyclerViewFragmentPresenter(this, getContext());
           //mascotas= new ArrayList<MascotasDto>();
 
@@ -81,7 +80,7 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
     @Override
     public MascotasAdaptador crearAdaptador(ArrayList<MascotasDto> mascotas) {
 
-        adaptador = new MascotasAdaptador(mascotas);
+        adaptador = new MascotasAdaptador(mascotas,this.getActivity());
         return adaptador;
     }
 

@@ -52,7 +52,7 @@ public class FavoritiesActivity extends AppCompatActivity {
         inicializarAdaptador();
     }
     public void inicializarAdaptador(){
-        adaptador = new MascotasAdaptador(mascotas);
+        adaptador = new MascotasAdaptador(mascotas,this);
         listmascotas.setAdapter(adaptador);
 
     }

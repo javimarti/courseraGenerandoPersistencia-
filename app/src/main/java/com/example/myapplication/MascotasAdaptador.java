@@ -59,8 +59,8 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
                 ConstructorMascotas constructorContactos = new ConstructorMascotas(activity);
                 constructorContactos.darLikeMascota(mascota);
-                mascotasViewHolder.votes.setText(constructorContactos.obtenerLikesMascota(mascota) );
-                Toast.makeText(view.getContext(),Integer.toString(position),Toast.LENGTH_SHORT).show();
+                mascotasViewHolder.votes.setText(Integer.toString(constructorContactos.obtenerLikesMascota(mascota)) );
+               Toast.makeText(view.getContext(),Integer.toString(position),Toast.LENGTH_SHORT).show();
             }
         });
 

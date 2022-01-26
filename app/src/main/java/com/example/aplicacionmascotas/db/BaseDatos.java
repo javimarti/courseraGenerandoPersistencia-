@@ -1,5 +1,6 @@
 package com.example.aplicacionmascotas.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.myapplication.MascotasDto;
+import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    @SuppressLint("ResourceType")
     public ArrayList<MascotasDto> obtenerTodosLosMascotas() {
         ArrayList<MascotasDto> mascotas = new ArrayList<>();
 
@@ -57,6 +60,9 @@ public class BaseDatos extends SQLiteOpenHelper {
             mascotaActual.setId(registros.getInt(0));
             mascotaActual.setPetName(registros.getString(1));
             mascotaActual.setPetImg(registros.getInt(2));
+            mascotaActual.setBoneImg(R.drawable.bonesvg);
+            mascotaActual.setVotes("0");
+            mascotaActual.setBoneLikeImg(R.drawable.bonesvg);
 
             String queryLikes = "SELECT COUNT("+ConstantesBaseDatos.TABLE_LIKES_MASCOTAS_NUMERO_LIKES+") as likes " +
                     " FROM " + ConstantesBaseDatos.TABLE_LIKES_MASCOTA +
@@ -80,7 +86,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     public void insertarMascota(ContentValues contentValues){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(ConstantesBaseDatos.TABLE_LIKES_MASCOTA,null, contentValues);
+        db.insert(ConstantesBaseDatos.TABLE_MASCOTAS,null, contentValues);
         db.close();
     }
 

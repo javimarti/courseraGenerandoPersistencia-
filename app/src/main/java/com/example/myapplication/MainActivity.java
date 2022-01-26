@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
    public void inicializarAdaptador(){
-         adaptador = new MascotasAdaptador(mascotas);
+         adaptador = new MascotasAdaptador(mascotas,this);
         listmascotas.setAdapter(adaptador);
 
     }
